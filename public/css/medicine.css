@@ -521,3 +521,59 @@ li.xian{
 .content1>span{
     margin-left:16px;
 }
+
+/*商家报价+说明书+承诺+资讯+问答*/
+/*explain*/
+.explain{
+    width: 1190px;
+    margin:0 auto;
+    position: relative;
+}
+.explain>ul:first-child{
+    width: 100%;
+    height: 51px;
+    border-bottom: 1px solid #0cb95f;
+    display: flex;
+}
+
+/*奇数位置的菜单*/
+.explain>ul:first-child>li:nth-child(odd)>a{
+    display: inline-block;
+    width:106px;
+    height: 50px;
+    background:#f7f7f7;
+    padding: 0 25px;
+    font: 14px 微软雅黑; 
+    color: #333;
+    line-height: 50px;
+}
+.explain>ul:first-child>li:nth-child(odd)>a:hover{
+    background: #0cb95f;
+    color: #fff;
+}
+/*第一个菜单的宽度特殊*/
+.explain>ul:first-child>li:first-child>a{
+    width:166px;
+}
+/*第二个菜单的宽度特殊*/
+.explain>ul:first-child>li:nth-child(3)>a{
+    width:120px;
+}
+/*偶数位置的菜单*/
+.explain>ul:first-child>li:nth-child(even){
+    width: 1px;
+    height: 50px;
+}
+.address{
+    position: absolute;
+    top: 20px;
+    right: 6px;
+}
+.icons{
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    background: url(../img/icons.png) -326px -4px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
