@@ -1,0 +1,58 @@
+/* css reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* 文字 */
+.text_white_sm{
+    font:12px 宋体;
+    color:#fff; 
+}
+.text_black_sm{
+    font:12px 宋体;
+    color:#333; 
+}
+.text_gray_sm{
+    font:12px 宋体;
+    color:#999;
+}
+.text_green_sm{
+    color:#0cb95f;
+    font:12px 宋体;
+}
+.text_sm{font:12px 宋体; color: black;}
+.text_777_sm{
+    font:12px 宋体;
+    color: #777;
+}
+.g_link:hover{
+    color: #0cb95f;
+    text-decoration: underline;
+}
+.glink:hover{
+    color: #0cb95f;
+}
+/* padding */
+.pt-2{
+    padding-top:2px;
+}
+.pt-6{
+    padding-top:6px;
+}
+/* margin */
+.mt-20{
+    margin-top:20px;
+}
+.mt-2{
+    margin-top:2px;
+}
+.mt-6{
+    margin-top:6px;
+}

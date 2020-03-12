@@ -1,0 +1,254 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+body{
+    background:#f4f4f4;
+}
+/* 顶部导航条 */
+.top_nav{
+    width: 100%;
+    height: 40px;
+    border:1px solid #e5e5e5;  
+    border-top:0;
+}
+#d1{
+    width: 990px;
+    height: 40px;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+#d1>ul{
+    display: flex;
+    list-style: none;
+    font-size:12px;
+}
+#d1>ul:first-child>li+li{
+    margin-left:10px;
+    line-height: 40px;
+}
+#d1>ul:first-child>li:first-child img{
+    margin: 11px 0 11px 0;
+}
+#d1>ul:first-child>li:nth-child(4) img{
+    margin: 12px 0 12px 0;
+}
+#d1 a{
+    color:#333;
+}
+#d1 a:hover{
+    color:#0cb95f;
+    text-decoration: underline;
+}
+.xian{
+    width: 1px;
+    height: 20px;
+    border-left:1px solid #e5e5e5;
+    margin:10px 0px 10px 10px;
+}
+#d1>ul:last-child>li{
+    line-height: 40px;
+    margin-left: 30px;
+}
+/* 网页标题 */
+#d3{
+    width: 100%;
+    height: 120px;
+    background-image: linear-gradient(90deg,#5ee3ff 0,#47deb3 38%,#2fd866 100%);
+}
+.logo{
+    width: 1149px;
+    height: 120px;
+    margin:0 auto; 
+    display: flex;
+    justify-content: space-between;
+}
+.logo>div:first-child{
+    display: flex;
+}
+.logo>div:first-child>a{
+    margin:37px 0;
+}
+.line{
+    display: inline-block;
+    height: 50px;
+    border-left: 1px solid #e5e5e5;
+    margin:35px 8px;
+}
+.logo h3{
+    display:inline-block;
+    color:#666;
+    font-size:24px;
+    line-height: 120px;
+    color: white;
+}
+.logo>div:last-child>span{
+    line-height: 120px;
+    font-size: 20px;
+    color: white;
+}
+.logo>div:last-child>span+span{
+    margin-left:20px;
+}
+.logo>div:last-child>span>span{
+    color:#ffee78;
+}
+
+/* footer */
+ footer{
+    width: 990px;
+    margin: 20px auto 20px auto;
+    text-align: center;
+}
+footer ul{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 10px;
+}
+footer ul>li,footer a{
+    font-size:12px;
+    color:#999;
+}
+footer ul>li>a:hover{
+    text-decoration: underline;
+}
+footer p{
+    font-size:12px;
+    color:#999;
+    margin-bottom:10px;
+}
+footer ul>li:last-child>img{
+    vertical-align: bottom;
+}
+#d2{ 
+    line-height: 20px;
+}
+section{
+    width: 1149px; height: 1259px;
+    margin:26px auto 0;
+    background: white;
+    border-radius:10px;
+}
+section:before{
+    content:'';
+    display: table;
+}
+section>.form{
+    width: 855px;
+    margin:48px 130px 40px; 
+    padding-bottom:32px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #666;
+    font-size: 22px;
+}
+section>.form:before{
+    content:'';
+    width: 6px;
+    height: 28px;
+    background: #1fdb9b;
+    display: inline-block;
+    vertical-align: bottom;
+}
+section>ul{
+    display: flex;
+    margin:0 30px 40px;
+    font-size: 18px;
+}
+section>ul>li:first-child{
+    width: 220px;
+    height: 40px;
+    text-align:right;
+    line-height: 40px;
+    color:#666;
+}
+section>ul>li:first-child>span{
+    color:#f00;
+}
+section>ul>li:last-child{
+    position: relative;
+}
+section>ul>li:last-child>input{
+    width: 738px;
+    height: 40px;
+    border-radius: 30px;
+    padding: 20px 28px;
+    border:1px solid #e5e5e5;
+    background:#f9f9f9; 
+    font-size:16px;
+}
+.line2{
+    border-left: 1px solid #e5e5e5;
+    height: 24px;
+    position: absolute;
+    left: 22px;
+    top:9px;
+}
+section ul li input.mesg{
+    width: 550px;
+    margin-right: 20px;
+    vertical-align: bottom;
+}
+section ul li>.test{
+    width: 168px;
+    height: 42px;
+    display: inline-block;
+    color:#333;
+    border: 1px solid #e5e5e5;
+    border-radius:30px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+}
+select{
+    width: 230px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    border-radius:30px;
+    padding:10px;
+}
+.login{
+    width: 855px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+.login>p{
+    font-size: 24px;
+    color:#ffb542;
+    margin-bottom: 20px;
+}
+.login>a{
+    display: inline-block;
+    width: 470px;
+    height: 60px;
+    margin-bottom: 40px;
+    background-image: linear-gradient(90deg,#00c891 0,#1fdb9b 100%);
+    border-radius:30px;
+    color:white;
+    font-size:24px;
+    line-height: 60px;
+    box-shadow:0px 5px 10px 0 rgba(31,219,155,0.25);
+}
+.login>div>input{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+.login>div>label{
+    color:#999;
+    font-size: 16px;
+}
+.login>div>a{
+    color:#0cb95f;
+}
+.login>div>a:hover{
+    text-decoration: underline;
+}
+
