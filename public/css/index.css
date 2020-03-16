@@ -290,13 +290,7 @@ li.xian{
 .ass>ul>li>div>a+a{
     margin-left:4px;
 }
-/*中间banner位*/
-.ban>div>div:nth-child(2){
-    width: 780px;
-    height: 390px;
-    background: url(../img/banner1.jpg);
-    position: relative;
-}
+
 .ban .ass li>div:first-child{
     width: 24px;
     height: 24px;
@@ -320,10 +314,12 @@ li.xian{
 .ban .ass li:nth-child(6)>div:first-child{
     background: url(../img/icons.png) -228px -154px;
 }
-.ban>div>div:nth-child(3){
-    width: 180px;
+/*中间banner位*/
+.ban>div>div:nth-child(2){
+    width: 780px;
     height: 390px;
-    font-size: 0;
+    background: url(../img/banner1.jpg);
+    position: relative;
 }
 .left, .right{
     width: 30px;
@@ -339,6 +335,13 @@ li.xian{
     background-image: url(../img/icons.png) ;
     background-position:-382px -138px;
 }
+/*右边*/
+.ban>div>div:nth-child(3){
+    width: 180px;
+    height: 390px;
+    font-size: 0;
+}
+
 
 /*限时购*/
 .time{

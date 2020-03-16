@@ -56,3 +56,9 @@ a{
 .mt-6{
     margin-top:6px;
 }
+/* 文字超出省略 */
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
