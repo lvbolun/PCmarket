@@ -1,0 +1,292 @@
+/*主导航栏*/
+.middle{
+    width: 100%;
+    background: #0cb95f;
+}
+.middle_nav{
+    width: 1190px;
+    height: 50px;
+    margin:0 auto;
+}
+.middle_nav>ul{
+    display: flex;
+    align-items: center;
+    line-height: 50px;
+}
+.middle_nav>ul>li:first-child{
+    width: 230px;
+    height: 50px;
+    background: #0aa454;
+    padding-left:20px;
+}
+.middle_nav>ul>li:first-child>a:hover{text-decoration: underline;}  
+.middle_nav>ul>li+li{
+    height: 50px;
+    padding:0 30px;
+}
+.middle_nav>ul>li:nth-child(2){
+    padding:0 50px;
+}
+.middle_nav>ul>li>a{
+    color:#fff;
+}
+.middle_nav>ul>li+li>a:hover{
+    text-decoration: underline;
+}
+/*导航栏选中*/
+.middle_nav>ul>li:nth-child(4){
+    background:#0aa454;
+}
+
+/*content*/
+.content{
+	width: 1190px;
+	margin: 0 auto;
+}
+.city{
+	display: flex;
+	height: 41px;
+	margin-top: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.city>div{
+	width: 158px;
+	height: 40px;
+	background: #f4f4f4;
+	margin-right: 20px;
+	border:1px solid #e5e5e5;
+	border-bottom: 0;
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+	line-height: 40px;
+}
+.nav{
+	display: flex;
+}
+.nav>li:first-child{
+	border-bottom: 1px solid #0cb95f;
+}
+.nav>li{
+	width: 90px;
+	height: 36px;
+	margin-top: 4px;
+	text-align: center;
+	line-height: 36px; 
+	position: relative;
+}
+.nav>li>a{
+	color: #999;
+	font-size: 12px;
+	font-family: 宋体;
+}
+.nav>li>a:hover{text-decoration: underline;}
+.nav>li>span{
+	position: absolute;
+	display: inline-block;
+	width: 9px;
+	height: 7px;
+	bottom: -1px;
+	left: 40px;
+	background: url(../img/icons.png) -485px -179px;
+}
+.banner{height: 110px;}
+.banner>img{
+	height: 110px;
+	margin: 10px 0;
+}
+
+/*药店信息*/
+.store_info{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+.store_info>li{
+	width: 376px;
+	height: 140px;
+	background: #f4f4f4;
+	padding: 15px 30px;
+	margin-bottom: 30px;
+	color:#666;
+	font-size: 12px;
+	font-family: 微软雅黑;
+}
+.store_info a{
+	font: 14px 微软雅黑;
+	line-height: 14px;
+	color: #0cb95f;
+}
+.store_info a:hover{text-decoration: underline;}
+.store_info>li>p:first-child{
+	margin-bottom: 10px;
+}
+.store_info>li>p:last-child{line-height: 18px;}
+.xing{
+    display: inline-block;
+    width: 70px;
+    height: 14px;
+    background: url(../img/icons.png) -233px -77px;
+    vertical-align: bottom;
+    margin-right: 4px;
+}
+.dian{padding: 4px 0;}
+
+/*药房推荐*/
+.recom{
+	position: relative;
+}
+.store_recom{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 201px;
+	padding:20px 48px;
+	border:1px solid #e5e5e5;
+	border-top: 0;
+	font-size: 12px;
+	font-family: 宋体;
+	color: #666;
+}
+.store_recom>li{
+	width: 160px;
+}
+.store_recom>li>a{
+	width: 160px;
+	height: 80px;
+	border: 1px solid #e5e5e5;
+	display: inline-block;
+}
+.store_recom>li>div{
+	height: 52px;
+	line-height: 18px;
+	padding:8px 0 10px;
+	border-bottom: 1px dashed #e5e5e5;
+
+}
+.store_recom>li>p{
+	margin-top: 8px;
+}
+.store_info>.h-12{height: 120px;}
+.left, .right{
+    width: 30px;
+    height: 60px;
+    position: absolute;
+    top:70px;
+    background: #999 url(../img/icons.png) -348px -138px;
+    border-radius:2px;
+    opacity: 0.5;
+}
+.right{
+    right: 0px;
+    background-image: url(../img/icons.png) ;
+    background-position:-382px -138px;
+}
+.left:hover{
+	background: #333 url(../img/icons.png) -348px -138px;
+}
+.right:hover{
+	background-image:#333 url(../img/icons.png) ;
+    background-position:-382px -138px;
+}
+
+/*实体药房*/
+.province{
+	width: 100%;
+	padding: 10px 15px;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	line-height: 30px;
+}
+.province>li>a{
+	display: inline-block;
+	width: 62px;
+	height: 30px;
+	margin:0 10px;
+	color:#333;
+	font-size: 12px; 
+}
+
+/*分页*/
+.page{
+    margin: 10px 0;
+}
+.page>li>a{
+    display: inline-block;
+    float: right;
+    width: 37px;
+    height: 37px;
+    border: 1px solid #e5e5e5;
+    background: #fcfcfc;
+    color: #333;
+    font-size: 12px;
+    line-height: 35px;
+    text-align: center;
+}
+.page>li>a:hover{border: 1px solid #0cb95f;}
+.page>li:first-child>a,.page>li:last-child>a{
+    width: 82px;
+}
+.page>li:last-child>a{
+    color:#999;
+}
+.page a{
+    margin-left:10px;
+}
+.page:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*热门链接*/
+.hot{
+    width: 1190px;
+    height: 186px;
+    margin: 0 auto;
+    border:1px solid #e5e5e5; 
+    margin-bottom:10px;
+}
+.hot>div:first-child{
+    width: 100%;
+    height: 41px;
+    padding:0 10px 0 20px;
+    background: #f4f4f4;
+    border-bottom:1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color:#666;
+}
+.hot>div:first-child{
+    justify-content: left;
+    padding-left:0;
+}
+.hot>div:first-child>div{
+    width: 137px;
+    text-align: center;
+}
+
+.hot>ul{
+    width: 100%;
+    height: 145px;
+    padding: 20px 35px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.hot>ul>li{
+    width: 110px;
+    margin-bottom:20px;
+}
+.hot a{
+    font: 12px 宋体;
+    color:#999;
+}
+.hot a:hover,.help>ul>li a:hover{
+    color:#0cb95f;
+    text-decoration: underline;
+}

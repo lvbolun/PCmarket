@@ -1,0 +1,69 @@
+/*主导航栏*/
+.middle{
+    width: 100%;
+    background: #0cb95f;
+}
+.middle_nav{
+    width: 1190px;
+    height: 50px;
+    margin:0 auto;
+}
+.middle_nav>ul{
+    display: flex;
+    align-items: center;
+    line-height: 50px;
+}
+.middle_nav>ul>li:first-child{
+    width: 230px;
+    height: 50px;
+    background: #0aa454;
+    padding-left:20px;
+}
+.middle_nav>ul>li:first-child>a:hover{text-decoration: underline;}  
+.middle_nav>ul>li+li{
+    height: 50px;
+    padding:0 30px;
+}
+.middle_nav>ul>li:nth-child(2){
+    padding:0 50px;
+}
+.middle_nav>ul>li>a{
+    color:#fff;
+}
+.middle_nav>ul>li+li>a:hover{
+    text-decoration: underline;
+}
+/*导航栏选中*/
+.middle_nav>ul>li:nth-child(6){
+    background:#0aa454;
+}
+
+/*内容*/
+.content{
+	width: 1190px;
+	margin: 20px auto 0;
+}
+.classfiy{
+	height: 80px;
+	background: #f4f4f4;
+	border: 1px solid #e5e5e5;
+	padding: 15px 20px;
+	display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
