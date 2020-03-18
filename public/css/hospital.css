@@ -219,11 +219,13 @@
 }
 .right{
 	width: 220px;
-	height: 290px;
-	border:1px solid #e5e5e5;
 	margin-top: 10px;
 }
-.right>div:first-child{
+.hospital_class{
+	border:1px solid #e5e5e5;
+	height: 292px;
+}
+.hospital_class>div{
   	height: 40px;
  	padding-left: 12px;
  	font-size: 14px;
@@ -232,14 +234,14 @@
   	background: #f4f4f4;
   	line-height: 40px;
 }
-.right>ul{
+.hospital_class>ul{
 	height: 250px;
 	padding: 22px 10px;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
-.right a{
+.hospital_class a{
 	display: inline-block;
 	width: 87px;
 	height: 30px;
@@ -251,7 +253,7 @@
 	text-align: center;
 	line-height: 30px;
 }
-.right a:hover{
+.hospital_class a:hover{
 	background: #0cb95f;
 	border:1px solid #0cb95f;
 	text-decoration: underline;
