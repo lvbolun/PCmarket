@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索结果</title>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/search.css">
+</head>
+<body>
+  <div id="app">
+    <!-- header -->
+    <my-header></my-header>
+    <!-- 主导航栏 -->
+    <div class="middle">
+      <div class="middle_nav">
+        <ul>
+          <li><a href="#">全部商品分类</a></li>
+          <li><a href="#">首页</a></li>
+          <li><a href="#">药品超市</a></li>
+          <li><a href="#">药房联盟</a></li>
+          <li><a href="#">医院大全</a></li>
+          <li><a href="#">医药资讯</a></li>
+          <li><a href="#">用药问答</a></li>
+          <li><a href="#">商家入驻</a></li>
+        </ul>  
+      </div>
+    </div>
+    <!-- content -->
+    <div class="content">
+      <!-- 分类 -->
+      <div class="classify">
+        <div class="rel">
+          <div>
+            找到<span> 中药 </span>相关商品<span> 4000 </span>个
+          </div>
+          <div>
+            <!-- <a href="javascript:;">重置搜索条件</a>  -->
+            <span>收起筛选 <span class="xia " data-jiantou="jiantou"></span></span>
+          </div>
+        </div> 
+        <ul>
+          <li class="brand">
+            <div>品牌选择：</div>
+            <ul>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+            </ul>
+            <div></div>
+          </li>
+          <li class="brand">
+            <div>厂家选择：</div>
+            <ul>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+            </ul>
+            <div></div>
+          </li>
+          <li class="brand">
+            <div>剂型选择：</div>
+            <ul>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+              <li><a href="javascript:;">江中</a></li>
+            </ul>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <!-- 标签栏 -->
+      <div class="tab">
+        <ul>
+            <li><a href="#" class="g_link">综合</a></li>
+            <li></li>
+            <li><a href="#" class="g_link">商家数</a> </li>
+        </ul>
+        <div class="change">
+            <a href="#" class="pro" :class="prevClass" @click="prev"></a>
+              <span v-text="`${pno}/${pcount}`"></span>
+            <a href="#" class="next" :class="nextClass" @click="next"></a>
+        </div>
+      </div>
+      <!-- 商品 -->
+      <ul class="product" v-if="pno==1">
+        <li v-for="(p1,i) of products1" :key="i" >
+          <img :src="p1.md" alt="">
+          <div class="price" v-text="`¥${p1.price}`"></div>
+          <ul>
+            <li><a href="javascript:;" v-text="p1.title"></a></li>
+            <li v-text="p1.spec"></li>
+            <li v-text="p1.type"></li>
+            <li>
+              <img :src="p1.text" alt="">
+            <li v-text="p1.company"></li>
+          </ul>
+          <div class="store">共有<span v-text="p1.bus_num"></span>个商家</div>
+          <a href="javascript:;" class="btn_det">查看详情</a>
+        </li>
+      </ul>
+      <ul class="product" v-else-if="pno==2">
+        <li v-for="(p2,k) of products2" :key="k" >
+          <img :src="p2.md" alt="">
+          <div class="price" v-text="`¥${p2.price}`"></div>
+          <ul>
+            <li><a href="javascript:;" v-text="p2.title"></a></li>
+            <li v-text="p2.spec"></li>
+            <li v-text="p2.type"></li>
+            <li>
+              <img :src="p2.text" alt="">
+            <li v-text="p2.company"></li>
+          </ul>
+          <div class="store">共有<span v-text="p2.bus_num"></span>个商家</div>
+          <a href="javascript:;" class="btn_det">查看详情</a>
+        </li>
+      </ul>
+      <ul class="product" v-else>
+        <li v-for="(p3,j) of products3" :key="j" >
+          <img :src="p3.md" alt="">
+          <div class="price" v-text="`¥${p3.price}`"></div>
+          <ul>
+            <li><a href="javascript:;" v-text="p3.title"></a></li>
+            <li v-text="p3.spec"></li>
+            <li v-text="p3.type"></li>
+            <li>
+              <img :src="p3.text" alt="">
+            <li v-text="p3.company"></li>
+          </ul>
+          <div class="store">共有<span v-text="p3.bus_num"></span>个商家</div>
+          <a href="javascript:;" class="btn_det">查看详情</a>
+        </li>
+      </ul>
+      <!-- 分页 -->
+      <ul class="page">
+        <li><a href="javascript:;" class="glink" :class="nextClass" @click="next">下一页</a></li>
+        <li @click="change"><a href="javascript:;" class="glink" v-for="(p,i) of pcount" :key="i" v-text="p"
+          :data-p="p" :class="{hover:pno==p}"></a></li>
+        <li><a href="javascript:;" class="glink" :class="prevClass" @click="prev">上一页</a></li>
+      </ul>
+      <div class="banner"><img src="../img/banner7.png" alt=""></div>
+      <!-- 大家关注的商品 -->
+      <div class="similar">
+      <div class="m_title">
+          大家关注的商品
+      </div>
+      <ul class="dis_img">
+         <li>
+              <a href="#" class="yao"><img src="../img/wss.jpg" alt=""></a>
+              <a href="#" class="g_link text_sm">【善存】多维元素片(29)</a>
+              <p class="text_gray_sm m_sm">60片/瓶</p>
+         </li> 
+         <li>
+              <a href="#" class="yao"><img src="../img/wss.jpg" alt=""></a>
+              <a href="#" class="g_link text_sm">【善存】多维元素片(29)</a>
+              <p class="text_gray_sm m_sm">60片/瓶</p>
+          </li> 
+          <li>
+              <a href="#" class="yao"><img src="../img/wss.jpg" alt=""></a>
+              <a href="#" class="g_link text_sm">【善存】多维元素片(29)</a>
+              <p class="text_gray_sm m_sm">60片/瓶</p>
+          </li> 
+          <li>
+              <a href="#" class="yao"><img src="../img/wss.jpg" alt=""></a>
+              <a href="#" class="g_link text_sm">【善存】多维元素片(29)</a>
+              <p class="text_gray_sm m_sm">60片/瓶</p>
+          </li> 
+          <li>
+              <a href="#" class="yao"><img src="../img/wss.jpg" alt=""></a>
+              <a href="#" class="g_link text_sm">【善存】多维元素片(29)</a>
+              <p class="text_gray_sm m_sm">60片/瓶</p>
+          </li> 
+          <li>
+              <a href="#" class="yao"><img src="../img/wss.jpg" alt=""></a>
+              <a href="#" class="g_link text_sm">【善存】多维元素片(29)</a>
+              <p class="text_gray_sm m_sm">60片/瓶</p>
+          </li> 
+      </ul>
+      </div>
+    </div>
+    <!-- footer -->
+    <my-footer></my-footer>
+  </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/search.js" ></script>
+</body>
+</html>

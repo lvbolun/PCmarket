@@ -346,6 +346,10 @@
 	display: inline-block;
 	vertical-align: top;
 }
+.province li a:hover{
+	text-decoration: underline;
+    color: #0cb95f;
+}
 .rank{
 	height: 45px;
 }

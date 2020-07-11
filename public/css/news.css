@@ -253,6 +253,10 @@
 	line-height: 26px;
 	position: relative;
 }
+.artical>ul a:hover{
+	text-decoration: underline;
+	color: #0cb95f;
+}
 .artical>ul span{
 	width: 20px;
 	height: 20px;
@@ -324,12 +328,16 @@
 	font-weight: 400;
 	font-size: 12px;
 }
+.new_book>div:first-child a:hover{text-decoration: underline;}
 .new_book>ul{
 	padding: 8px 15px;
 	font-size: 12px;
 }
 .new_book>ul>li{margin-bottom: 8px;}
 .new_book>ul>li span{margin-right: 10px;}
+.new_book>ul>li a:hover{
+	text-decoration: underline;
+	color: #0cb95f;}
 
 /*right2*/
 .mt-0{margin-top: 0}

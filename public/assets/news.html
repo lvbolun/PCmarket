@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>医院资讯</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/news.css">
 </head>
 <body>
-    <header>
-        <iframe class="my_header" src="header.html" scrolling="no"></iframe>
-    </header>
+    <div id="app">
+    <my-header></my-header>
      <!-- 主导航栏 -->
 	<div class="middle">
 			<div class="middle_nav">
@@ -647,8 +648,12 @@
                 </ul>
                 </div>
     </div>
-    <footer class="my_footer">
-        <iframe class="my_footer" src="footer.html" scrolling="no"></iframe>
-    </footer>
+    <my-footer></my-footer>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/medicine_store.js"></script>
 </body>
 </html>

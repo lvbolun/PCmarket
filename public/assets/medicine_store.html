@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>药房联盟</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/medic_sotre.css">
 </head>
 <body>
-    <header>
-        <iframe class="my_header" src="header.html" scrolling="no"></iframe>
-    </header>
-     <!-- 主导航栏 -->
+    <div id="app">
+    <my-header></my-header>
+    <!-- 主导航栏 -->
 	<div class="middle">
         <div class="middle_nav">
             <ul>
@@ -25,114 +26,71 @@
                 <li><a href="#">商家入驻</a></li>
             </ul>
         </div>
-</div>
+    </div>
     <div class="content">
         <div class="city">
             <div>热点药房推荐</div>
             <ul class="nav">
-                <li>
-                    <a href="#">北京</a>
-                    <span></span>
-                </li>
-                <li><a href="#">上海</a></li>
-                <li><a href="#">广州</a></li>
-                <li><a href="#">江苏</a></li>
-                <li><a href="#">浙江</a></li>
-                <li><a href="#">湖南</a></li>
+                <li v-for="(city,i) of nav" :key="i" @click="change(i)">{{city}}</li>
+                <!-- <li></li> -->
             </ul>
         </div>   
         <a href="#" class="banner"><img src="../img/rz.jpg" alt=""></a>
         <!-- 药房信息 -->
-        <ul class="store_info">
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        <ul class="store_info" v-if="i==0">
+            <li v-for="(store,i) of info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        </ul>
+        <ul class="store_info" v-else-if="i==1">
+            <li v-for="(store,i) of sh_info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        </ul>
+        <ul class="store_info" v-else-if="i==2">
+            <li v-for="(store,i) of info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        </ul>
+        <ul class="store_info" v-else-if="i==3">
+            <li v-for="(store,i) of info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        </ul>
+        <ul class="store_info" v-else-if="i==4">
+            <li v-for="(store,i) of sh_info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        </ul>
+        <ul class="store_info" v-else-if="i==5">
+            <li v-for="(store,i) of info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
-            </li>
-            <li>
-                <p><a href="#">北京百德康药房有限公司</a></p>
-                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>4.9</p>
-                <p class="text_777_sm dian">经营许可证：京DA0818021</p>
-                <p class="text_777_sm dian">商家地址：北京市海淀区中关村东路18号财智国际大厦13号商铺</p>
+        </ul>
+        <ul class="store_info" v-else>
+            <li v-for="(store,i) of sh_info" :key="i">
+                <p><a to="javascript" class="title">{{store.sname}}</a></p>
+                <p class="text_777_sm dian">店铺评分：<span class="xing"></span>{{store.points}}</p>
+                <p class="text_777_sm dian">经营许可证：{{store.pro}}</p>
+                <p class="text_777_sm dian">商家地址：{{store.add}}</p>
             </li>
         </ul>
         <!-- 签约药房推荐 -->
@@ -315,47 +273,14 @@
             <li><a href="#" class="glink">1</a></li>
             <li><a href="#" class="glink">上一页</a></li>
         </ul>
-        <!-- 友情链接 -->
-        <div class="hot">
-            <div>
-                <div>推荐商品</div>
-            </div>
-        <ul>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-        </ul>
-        </div>
+        <my-tabs></my-tabs>
     </div>
-    <footer class="my_footer">
-        <iframe class="my_footer" src="footer.html" scrolling="no"></iframe>
-    </footer>
+    <my-footer></my-footer>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/medicine_store.js"></script>
 </body>
 </html>

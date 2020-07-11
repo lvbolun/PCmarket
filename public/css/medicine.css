@@ -612,6 +612,7 @@ li.xian{
     background:#e5e5e5; 
 }
 .tab>ul:first-child>li>a{color: #333;}
+.tab>ul:first-child a:hover{color: #0cb95f;text-decoration: underline;}
 .local{
     width: 65px;
     position: relative;

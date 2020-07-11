@@ -4,80 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>限时购</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/detail.css">
     <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
-    <!-- 顶部导航条 -->
-    <div class="top_nav">
-        <div id="d1">
-            <ul>
-                <li><div></div>  <!-- 精灵图 --> </li>
-                <li><a href="#">收藏药房网商城</a></li>
-                <li class="xian"></li>
-                <li><div></div></li>
-                <li><a href="#">微信查价</a> </li>
-                <li class="xian"></li>
-                <li><div></div></li>
-                <li> <a href="#">手机APP</a></li>
-                <li class="xian"></li>
-                <li><div></div> </li>
-                <li><a href="#">小程序查价</a> </li>  
-            </ul>
-            <ul>
-                <li>
-                    <a href="#">登录</a> / <a href="#">免费注册</a>
-                </li>
-                <li><div></div></li>
-                <li>
-                    <a href="#">需求单(0)</a>
-                </li>
-                <li><a href="#">个人中心</a></li>
-                <li><div></div></li>
-                <li class="xian"></li>
-                <li><a href="#">收藏夹</a></li>
-                <li class="xian"></li>
-                <li><a href="#">客服中心</a> </li>
-                <li><a href="#">网站导航</a></li>
-                <li><div></div></li>
-                <li><a href="#">商家入驻</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- 网页标题 -->
-    <div class="logo">
-        <!-- logo -->
-        <div>
-            <a href="#">
-                <img src="../img/logo.jpg" alt="">
-            </a>   
-        </div>
-        <!-- 搜索框 -->
-        <div>
-            <div>
-                <a href="#" class="choose">商品
-                    <span></span>   
-                </a><input type="text" placeholder="请输入批准文号、通用名、商品名、症状" class="search"><a href="#" class="search_btn">搜索</a>
-            </div>
-            <ul>
-                <li>
-                    <a href="#" title="补血"><span>补血</span></a> 
-                </li>
-                <li><a href="#" title="999">999</a></li>
-                <li><a href="#" title="片仔癀">片仔癀</a></li>
-                <li><a href="#" title="妈富隆">妈富隆</a></li>
-                <li>
-                    <a href="#" title="阿胶"><span>阿胶</span></a>
-                </li>
-                <li><a href="#" title="金戈">金戈</a></li>
-                <li><a href="#" title="汤臣倍健">汤臣倍健</a></li>
-            </ul>
-        </div> 
-         <!--品质保障  -->
-        <div>
-            <a href="#"></a>
-        </div>
-    </div>  
+    <div id="app">
+    <my-header></my-header>
     <!-- 主导航栏 -->
     <div class="middle">
         <div class="middle_nav">
@@ -110,16 +44,28 @@
         <!-- 左侧 -->
         <div class="left">
             <a href="#">
-                <img src="../img/wss.jpg" alt="">
+                <!-- supermask -->
+                <div class="super-mask" @mousemove="move" @mouseover="toggle" @mouseout="toggle"></div>
+                <!-- 遮罩 -->
+                <div class="mask"  :style="{'display':hide==1?'':'none','top':top,'left':left}" ></div>
+                <!-- 大图 -->
+                <div class="lg" :style="{'background-image':`url(${images[i].lg})`,'display':hide==1?'':'none',
+                'background-position':`-${parseInt(left)*1.5}px -${parseInt(top)*1.5}px`}"></div>
+                
+                <!-- 中图片 -->
+                <img :src="images[i].md" >
                 <p>温馨提醒：商品包装因厂家更换频繁，如有不符请以实物为准</p> 
             </a>
            <div>
-                <a href="#" title="善存 多维元素片(29) 包装主图"><img src="../img/wss1.jpg" alt=""></a> 
-                <a href="#" title="善存 多维元素片(29) 包装侧面图1"><img src="../img/wss2.jpg" alt=""></a> 
-                <a href="#" title="善存 多维元素片(29) 包装侧面图2"><img src="../img/wss3.jpg" alt=""></a> 
-                <a href="#" title="善存 多维元素片(29) 包装侧面图3"><img src="../img/wss4.jpg" alt=""></a> 
-                <a href="#" title="善存 多维元素片(29) 包装主图2"><img src="../img/wss1.jpg" alt=""></a> 
-            </div> 
+               <!-- 左右箭头 -->
+                <a class="prev" :class="{hover:times>0}" @click="moveright"></a> 
+                <a class="next" :class="li_hover" @click="moveleft"></a>
+                <!-- 小图 -->
+                <ul :style="{width:(images.length*76+(images.length-1)*10)+'px','margin-left':-86*times+'px'}"
+                @mouseover="changei">
+                   <li title="" v-for="(p,i) of images" :key="i"><img :src="p.sm" :data-i="i" alt=""></li>
+                </ul>
+            </div>  
            <div>
                <span>商品编号533714</span>
                <a href="#"><span></span>收藏该商品</a>
@@ -156,6 +102,15 @@
                 <li class="price">¥<span>67.00</span> </li>
                 <li class="sao">
                     <a href="#"><span></span>手机扫一扫<span></span></a>
+                    <div class="sys">
+                        <div>
+                            <a href="#"><span></span>手机扫一扫<span></span></a>
+                        </div>
+                        <div>
+                            <div><img src="../img/QRCode.gif" alt=""></div>
+                            查药更方便
+                        </div>
+                    </div>
                 </li>
             </ul>
             <ul class="dea3">
@@ -169,7 +124,7 @@
                 <li class="title">需求数量</li>
                 <li class="content1">
                     <div class="count">
-                       <a href="#"></a><input type="text" placeholder="1"><a href="#"></a>
+                       <a href="#" @click="dec"></a><input type="text" v-model="num"><a href="#" @click="add"></a>
                     </div>
                     <span>库存： 1232瓶 &nbsp;&nbsp;有效期至： 剩余有效期≥180天</span>
                 </li>
@@ -422,10 +377,10 @@
                 <span>善存 多维元素片(29)图片展示</span>        
             </div>
             <div class="tu_display">
-                <a href="#"><img src="../img/wss_b1.jpg" alt=""></a>
-                <a href="#"><img src="../img/wss_b2.jpg" alt=""></a>
-                <a href="#" class="mt_ten"><img src="../img/wss_b3.jpg" alt=""></a>
-                <a href="#" class="mt_ten"><img src="../img/wss_b4.jpg" alt=""></a>
+                <a href="#"><img src="../img/md/wss_b1.jpg" alt=""></a>
+                <a href="#"><img src="../img/md/wss_b2.jpg" alt=""></a>
+                <a href="#" class="mt_ten"><img src="../img/md/wss_b3.jpg" alt=""></a>
+                <a href="#" class="mt_ten"><img src="../img/md/wss_b4.jpg" alt=""></a>
             </div>
             <!-- 实景 -->
             <div class="med_name">
@@ -455,15 +410,15 @@
                     <div></div>
                     <div>
                         <p>正品保证</p>
-                        <p class="text_black_sm mt-2">药房网商城在售商品均由正规实体签约商家供货，商家提供正品保证。</p>
-                        <p class="text_black_sm mt-6">在购物过程中发现任何商家有违规行为，请直接向我们投诉举报！</p>
+                        <p class="texts">药房网商城在售商品均由正规实体签约商家供货，商家提供正品保证。</p>
+                        <p class="texts">在购物过程中发现任何商家有违规行为，请直接向我们投诉举报！</p>
                     </div>
                 </li>
                 <li>
                     <div class="fp"></div>
                     <div>
                         <p>提供发票</p>
-                        <p class="text_black_sm pt-2">药房网商城所有在售商家均可提供商品发票。</p>
+                        <p class="texts">药房网商城所有在售商家均可提供商品发票。</p>
                     </div>   
                 </li>
             </ul>
@@ -663,82 +618,7 @@
             </li> 
         </ul>
     </div>
-    <!-- 热门商品 友情链接 -->
-    <div class="hot">
-        <div>
-            <div>推荐商品</div>
-        </div>
-        <ul>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-        </ul>
-    </div>
-    <!-- 中药 西药 保健品 -->
-    <div class="hot">
-        <div>
-            <div>推荐商品</div>
-        </div>
-        <ul>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-            <li><a href="#">白云山</a></li>
-        </ul>
-    </div>
+    <my-tabs></my-tabs>
     <!-- 标签 -->
     <div class="la">
         <span class="text_gray_sm">标签：</span>
@@ -751,120 +631,12 @@
     <div class="dire">
         查找<a href="#" class="g_link">多维元素片(29)</a>说明书，多维元素片(29)频道专业提供:多维元素片(29)说明书,多维元素片(29)多少钱一瓶(一盒,一支),多维元素片(29)价格,多维元素片(29)功效与作用，多维元素片(29)效果,多维元素片(29)怎么样的信息，让用户快速及准确的查看多维元素片(29)说明书及多维元素片(29)的药品比价信息，药房网商城信息可靠、药品价低又安全。
     </div>
-
-     <!-- footer1 -->
-        <div class="footer">
-            <div class="help">
-                <ul>
-                    <li>消费者保障</li>
-                    <li><a href="#">网购警示</a></li>
-                    <li><a href="#">隐私保护</a></li>
-                    <li><a href="#">投诉维权</a></li>
-                    <li><a href="#">客服中心</a></li>
-                </ul>
-                <ul>
-                    <li>新手帮助</li>
-                    <li><a href="#">用户注册</a></li>
-                    <li><a href="#">商品搜索</a></li>
-                    <li><a href="#">微信查药</a></li>
-                    <li><a href="#">订单状态</a></li>
-                </ul>
-                <ul>
-                    <li>配送方式</li>
-                    <li><a href="#">物流配送</a></li>
-                    <li><a href="#">运费说明</a></li>
-                    <li><a href="#">门店送货</a></li>
-                    <li><a href="#">验收标准</a></li>
-                </ul>
-                <ul>
-                    <li>支付方式</li>
-                    <li><a href="#">支付方式</a></li>
-                </ul>
-                <ul>
-                    <li>售后服务</li>
-                    <li><a href="#">退换货保障</a></li>
-                    <li><a href="#">发票制度</a></li>
-                    <li><a href="#">退款说明</a></li>
-                </ul>
-                <ul>
-                    <li>商家合作</li>
-                    <li><a href="#">商家入驻</a></li>
-                    <li><a href="#">厂家入驻</a></li>
-                    <li><a href="#">智慧ERP</a></li>
-                </ul>
-                <ul>
-                    <li><p>手机APP</p></li>
-                    <li><a href="#"><img src="../img/app80.png" alt=""></a></li>
-                    <li><span>新人领20元礼包</span></li>
-                </ul>
-                <ul>
-                    <li><p>关注微信</p></li>
-                    <li><a href="#"><img src="../img/wxsmall.png" alt=""></a></li>
-                    <li><span>每日签到领积分</span></li>
-                </ul>
-            </div>
-        </div>
-        <!-- footer2 -->
-        <footer>
-            <div>
-                <ul>
-                    <li><a href="#">关于我们</a></li>
-                    <li><a href="#">资质证书</a></li>
-                    <li><a href="#">商家入驻</a></li>
-                    <li><a href="#">智慧ERP</a></li>
-                    <li><a href="#">联系我们</a></li>
-                    <li><a href="#">广告联盟</a></li>
-                    <li><a href="#">工作机会</a></li>
-                    <li><a href="#">帮助中心</a></li>
-                    <li><a href="#">法律声明</a></li>
-                    <li><a href="#">网站地图</a></li>
-                    <li><a href="#">在售商品</a></li>
-                    <li><a href="#">下架商品</a></li>
-                    <li><a href="#">商品索引</a></li>
-                    <li><a href="#">商品分类</a></li>
-                    <li><a href="#">热门搜索</a></li>
-                </ul><ul>
-                    <li><a href="#">药房联盟</a></li>
-                    <li><a href="#">医院大全</a></li>
-                    <li><a href="#">产品目录</a></li>
-                    <li><a href="#">品牌大全</a></li>
-                    <li><a href="#">药品库</a></li>
-                    <li><a href="#">全国药店</a></li>
-                </ul>
-                <ul>
-                   <li><span>互联网药品信息服务资格证编号：</span><a href="#">(沪)-经营性-2017-0003</a></li> 
-                   <li><a href="#">(沪)网械平台备字[2018]第00001号</a></li> 
-                   <li><span>增值电信业务经营许可证编号：</span><a href="#">沪B2-20170392</a></li> 
-                </ul>
-                <ul>
-                    <li><a href="#">营业执照</a></li>
-                    <li>
-                        <img src="img/gaba.png" alt="">
-                        <a href="" id="d2">沪公网安备 31011502002155号</a>
-                    </li>
-                    <li><a href="#">ICP备案号：沪ICP备07012885号</a></li>
-                    <li><a href="#">信息系统安全等级保护备案号：31011513002-19001</a></li>
-                </ul>
-                <ul>
-                    <li>谨防网络诈骗提示：尊敬的药房网商城用户，如您接到962110电话，请立即接听。</li>
-                </ul>
-                <ul>
-                    <li>©2007-2020 药房网商城版权所有 上海伊邦医药信息科技有限公司</li>
-                </ul>
-                <ul class="yiyuan">
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-                <ul>
-                    <li>本网站用字经北京北大方正电子有限公司授权许可</li>
-                </ul>
-            </div>
-        </footer>
+    <my-footer></my-footer>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/detail.js"></script>
 </body>
 </html>
