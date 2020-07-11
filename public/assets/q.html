@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="boxWrap">
+    <div class="floor bg_blue" data-floor="1">1F</div>
+    <div class="floor bg_pink" data-floor="2">2F</div>
+    <div class="floor bg_red" data-floor="3">3F</div>
+    <div class="floor bg_black" data-floor="4">4F</div>
+    <div class="floor bg_green" data-floor="5">5F</div>
+</div>
+<div class="fixFloor">
+    <ul class="cf">
+        <li class="subFloor cf active"><p class="floorNum">1F</p><p class="floorExpression bg_blue">商家</p></li>
+        <li class="subFloor cf"><p class="floorNum">2F</p><p class="floorExpression bg_pink">类目</p></li>
+        <li class="subFloor cf"><p class="floorNum">3F</p><p class="floorExpression bg_red">热门</p></li>
+        <li class="subFloor cf"><p class="floorNum">4F</p><p class="floorExpression bg_black">资讯</p></li>
+        <li class="subFloor cf"><p class="floorNum">5F</p><p class="floorExpression bg_green">服务</p></li>
+    </ul>
+</div>
+<script>
+ 
+
+  $(window).scroll(function(){
+      if($(document).scrollTop()>170){
+          $(".fixFloor").show();
+      }
+      else{
+          $(".fixFloor").hide();
+      }
+
+      var sTop = $(window).scrollTop() + 400;
+      var floor1 = $(".floor[data-floor='1']").offset().top;
+      var floor2 = $(".floor[data-floor='2']").offset().top;
+      var floor3 = $(".floor[data-floor='3']").offset().top;
+      var floor4 = $(".floor[data-floor='4']").offset().top;
+      var floor5 = $(".floor[data-floor='5']").offset().top;
+
+      if(sTop > floor1){
+          $(".subFloor").eq(0).delay(300).addClass("active").siblings("li").removeClass("active");
+      }
+      if(sTop > floor2){
+          $(".subFloor").eq(1).delay(300).addClass("active").siblings("li").removeClass("active");
+      }
+      if(sTop > floor3){
+          $(".subFloor").eq(2).delay(300).addClass("active").siblings("li").removeClass("active");
+      }
+      if(sTop > floor4){
+          $(".subFloor").eq(3).delay(300).addClass("active").siblings("li").removeClass("active");
+      }
+      if(sTop > floor5){
+          $(".subFloor").eq(4).delay(300).addClass("active").siblings("li").removeClass("active");
+      }
+  });
+
+  $(".subFloor").on("click",function(){
+      $(this).addClass('active').siblings().removeClass('active');
+  });
+
+  $(".subFloor").on("click",function(){
+      var floor = $(this).index();
+      $("body").animate({scrollTop:($(".floor").eq(floor).offset().top)},50);
+  });
+
+  $(function(){
+        //1.楼梯什么时候显示，800px scroll--->scrollTop
+        $(window).on('scroll',function(){
+            var $scroll=$(this).scrollTop();
+            if($scroll>=800){
+                $('#loutinav').show();
+            }else{
+                $('#loutinav').hide();
+            }
+
+            //4.拖动滚轮，对应的楼梯样式进行匹配
+            $('.louti').each(function(){
+                var $loutitop=$('.louti').eq($(this).index()).offset().top+400;
+                //console.log($loutitop);
+                if($loutitop>$scroll){//楼层的top大于滚动条的距离
+                    $('#loutinav li').removeClass('active');
+                    $('#loutinav li').eq($(this).index()).addClass('active');
+                    return false;//中断循环
+                }
+            });
+        });
+        //2.获取每个楼梯的offset().top,点击楼梯让对应的内容模块移动到对应的位置  offset().left
+        
+        var $loutili=$('#loutinav li').not('.last');
+        $loutili.on('click',function(){
+            $(this).addClass('active').siblings('li').removeClass('active');
+            var $loutitop=$('.louti').eq($(this).index()).offset().top;
+            //获取每个楼梯的offsetTop值
+            $('html,body').animate({//$('html,body')兼容问题body属于chrome
+                scrollTop:$loutitop
+            })
+        });
+        //3.回到顶部
+        $('.last').on('click',function(){
+            $('html,body').animate({//$('html,body')兼容问题body属于chrome
+                scrollTop:0
+            })
+        });
+        
+        
+
+
+    })
+</script>
+</body>
+</html>

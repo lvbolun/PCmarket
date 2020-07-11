@@ -1,0 +1,104 @@
+#content{
+  width: 1190px;
+  margin: 10px auto;
+  display:flex;
+  justify-content: space-between;
+}
+.left{
+  width: 230px;
+}
+.left>li{
+	border: 1px solid #e5e5e5;
+	position: relative;
+	margin-bottom: 20px;
+}
+.left>li>.title{
+	background: #f4f4f4;
+	height: 50px;
+	padding-left: 70px;
+	font-size: 14px;
+	color: #333;
+	cursor: pointer;
+	line-height: 50px;
+}
+
+.jian{
+	display: block;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 19px;
+	left: 30px;
+	background: url(../img/icons.png) -215px -110px;
+}
+.jia{
+	display: block;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 19px;
+	left: 30px;
+	background: url(../img/icons.png) -215px -84px;
+}
+
+.container{padding: 0 10px;}
+.container>li{
+	height: 41px; 
+	position: relative;
+	cursor: pointer;
+	padding-left: 60px;
+}
+.container>li+li{
+	border-top: 1px dashed #e5e5e5;
+}
+.container>li>div{
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 14px;
+	left: 22px;
+	background: url(../img/icons.png) -253px -28px;
+}
+.container a{
+	font-size: 12px;
+	line-height: 41px;
+	color: #333;
+}
+.container>li:hover>a{
+	color: #0cb95f;
+}
+.container>li:hover>div{
+	background: url(../img/icons.png) -261px -28px;
+}
+.fade{
+    height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:all .5s linear;  
+}
+.in{
+   height:124px;
+   opacity:1;
+}
+
+.right{
+  width: 940px;
+  padding: 0 20px;
+  border:1px solid #e5e5e5;
+}
+.jingshi{
+	width: 898px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.right a{
+	color: #666;
+	font-size: 12px;
+	line-height: 32px;
+	margin-left: 20px;
+}
+.right a:hover{
+	color: #0cb95f;
+	text-decoration:underline;
+}
